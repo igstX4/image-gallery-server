@@ -11,7 +11,7 @@ const startTelegramBot = () => {
         console.log(authToken, 21212)
         try {
             // Отправка запроса на ваш бэкенд для проверки/регистрации пользователя
-            const response = await axios.post('http://localhost:5000/api/users/telegram-auth', {
+            const response = await axios.post('https://image-gallery-server-one.vercel.app/api/users/telegram-auth', {
                 authToken,
                 telegramId: chatId
             });
