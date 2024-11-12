@@ -3,7 +3,10 @@ const axios = require('axios');
 
 const startTelegramBot = () => {
     const bot = new TelegramBot('7839131342:AAFHj1ZMi7wf2QXAoPJl_uiLKz73clbSZOY', { polling: true });
-
+    bot.onText('a', async (msg, match) => {
+        const chatId = msg.chat.id;
+        bot.sendMessage(chatId, 'test')
+    })
     bot.onText(/\/start/, async (msg, match) => {
         console.log('Команда /start отловлена:', msg);
         const chatId = msg.chat.id;
