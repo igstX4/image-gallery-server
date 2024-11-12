@@ -7,10 +7,12 @@ const startTelegramBot = require('./telegramBot'); // Импорт бота
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
-    app.listen(PORT, () => {
+    const server = app.listen(PORT, () => {
         console.log(`Сервер запущен на http://localhost:${PORT}`);
         startTelegramBot(); // Запуск бота
         console.log('Телеграм-бот запущен');
-        startWebSocketServer();
+
+        // Передаем HTTP-сервер в WebSocket
+        startWebSocketServer(server);
     });
 });
