@@ -13,6 +13,6 @@ connectDB().then(() => {
         console.log('Телеграм-бот запущен');
 
         // Передаем HTTP-сервер в WebSocket
-        startWebSocketServer(server);
+        startWebSocketServer();
     });
 });
